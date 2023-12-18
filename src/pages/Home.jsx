@@ -19,8 +19,13 @@ const Home = () => {
     const {logged: idLogged} = useContext(LoginContext)
 
     const pathGet = 'proposal'
-    const key = idLogged
+    const key = ''
     const {paginationNext, paginationBack, count, countrecords, take, data, loading} = useRequestGet(pathGet, key)
+
+
+    const foundProposal = data.filter(proposal =>{
+        return proposal.id_user != idLogged
+    })
 
 
     const pathGetUser = 'user'
@@ -40,15 +45,15 @@ const Home = () => {
                 </BoxProposal>
             }
             {
-                data.length == 0 &&
+                foundProposal.length == 0 &&
                 <BoxProposal style={{alignItems: 'center'}}>
                     <p className='text-no-proposal'>Crie sua primeira proposta</p>
                     <NavLink className='btn-create-proposal' to={'/create/proposal'}>Criar proposta</NavLink>
                 </BoxProposal>
             }
             {
-                data.length != 0 ?
-                data.map(proposals =>(
+                foundProposal.length != 0 ?
+                foundProposal.map(proposals =>(
                     <ProposalComponent key={proposals.id}
                         identifier={proposals.id}
                         src_profile={ProfilePhoto}
@@ -81,8 +86,13 @@ const Home = () => {
                     <h3>Usuários</h3>
                     <NavLink style={{display: 'flex'}} to={'/user'} className='see-all'>Ver todos</NavLink>
                 </header>
+                {loadingUser == true &&
+                    <BoxProposal style={{alignItems: 'center'}}>
+                        <Spinner />
+                    </BoxProposal>
+                }
                 {
-                     foundUsers.map(users =>(
+                    foundUsers.map(users =>(
                         <BoxUsersComponent key={users.id}
                             button='flex'
                             text_button='Visitar'

@@ -23,7 +23,7 @@ const dateCompare = (element) => {
     if (testMinutes < 60) {
 
         if (resultSeconds < 60) {
-            var result = 'agora'
+            var result = 'Agora'
         } else {
             var result = `há ${Math.trunc(testMinutes)} minuto${testMinutes >= 2 ? 's' : ''}`
         }
