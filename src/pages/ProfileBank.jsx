@@ -19,6 +19,8 @@ const ProfileBank = () => {
     const key = idLogged
     const {data: dataBankAccount} = useRequestGet(pathGetBankAccount, key)
     
+    const foundBankAccount = Object.assign({},dataBankAccount[0])
+    
 
     const pathPost = 'bankaccount'
     const idInputPost = '#create_bankaccount'
@@ -61,10 +63,10 @@ const ProfileBank = () => {
                 }
                 <input className='inputstyle' type="hidden" id='create_bankaccount' name='id_user' placeholder='id_user' defaultValue={key} />
                 <input className='inputstyle' type="hidden" id='create_bankaccount' name='id_bank' placeholder='id_bank' defaultValue={1} />
-                <input className='inputstyle' type="text" id='create_bankaccount' name='agency' placeholder='agency' defaultValue={dataBankAccount.agency} /><br />
-                <input className='inputstyle' type="text" id='create_bankaccount' name='agency_digit' placeholder='agency_digit' defaultValue={dataBankAccount.agency_digit} /><br />
-                <input className='inputstyle' type="text" id='create_bankaccount' name='account' placeholder='account' defaultValue={dataBankAccount.account} /><br />
-                <input className='inputstyle' type="text" id='create_bankaccount' name='account_digit' placeholder='account_digit' defaultValue={dataBankAccount.account_digit} /><br />
+                <input className='inputstyle' type="text" id='create_bankaccount' name='agency' placeholder='agency' defaultValue={foundBankAccount.agency} /><br />
+                <input className='inputstyle' type="text" id='create_bankaccount' name='agency_digit' placeholder='agency_digit' defaultValue={foundBankAccount.agency_digit} /><br />
+                <input className='inputstyle' type="text" id='create_bankaccount' name='account' placeholder='account' defaultValue={foundBankAccount.account} /><br />
+                <input className='inputstyle' type="text" id='create_bankaccount' name='account_digit' placeholder='account_digit' defaultValue={foundBankAccount.account_digit} /><br />
                 {
                     dataBankAccount.length == 0 
                     ? 
