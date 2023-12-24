@@ -3,6 +3,7 @@ import maskNumberCard from '../utils/maskNumberCard'
 import maskCvv from '../utils/maskCvv'
 import maskMonth from '../utils/maskMonth'
 import maskYear from '../utils/maskYear'
+import https from '../config/axios'
 
 
 
@@ -112,6 +113,30 @@ const useFunctions = (action) => {
         setNamecard(e.target.value)
     }
 
+    const [res, setRes] = useState()
+    const [loading, setLoading] = useState()
+
+    const formUpload = async (e) =>{
+        e.preventDefault()
+
+        var img = e.target.files[0]
+        const formData = new FormData()
+        formData.append('file', img)
+
+        setLoading(true)
+
+        try {
+
+            const response = await https.put(`upload/${action}`, formData)
+            setRes(response.data.message)
+            
+        } catch (error) {
+            console.log(error)
+        }
+
+        setLoading(false)
+    }
+
 
     return {
         actionmenu, 
@@ -132,7 +157,10 @@ const useFunctions = (action) => {
         cardFront,
         actioncard,
         nameCard,
-        namecard
+        namecard,
+        formUpload,
+        res,
+        loading
     }
 }
 

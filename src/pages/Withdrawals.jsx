@@ -4,7 +4,7 @@ import { LoginContext } from '../contexts/loginContext'
 import useRequestsPost from '../hooks/useRequestPost'
 import { NavLink } from "react-router-dom"
 import ContainerWithdrawals from '../styles/ContainerWithdrawals'
-import ProfilePhoto from '../../public/userprofile.jpg'
+import ProfilePhoto from '../../public/profileNot.png'
 import Spinner from '../styles/Spinner'
 import SpinnerButton from '../styles/SpinnerButton'
 import Toastify from '../components/Toastify'

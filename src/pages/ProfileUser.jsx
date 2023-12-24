@@ -1,12 +1,17 @@
 import { NavLink } from "react-router-dom"
 import ContainerProfileUser from "../styles/ContainerProfileUser"
 import { LoginContext } from '../contexts/loginContext'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import useRequestsPut from '../hooks/useRequestPut'
 import useRequestGet from '../hooks/useRequestGet'
+import useRequestsPost from '../hooks/useRequestPost'
 import maskCpf from '../utils/maskCpf'
 import SpinnerButton from '../styles/SpinnerButton'
+import Spinner from "../styles/SpinnerButton"
 import Toastify from '../components/Toastify'
+import ProfilePhoto from '../../public/profileNot.png'
+import https from '../config/axios'
+import useFunctions from "../hooks/useFunctions"
 
 const ProfileUser = () => {
 
@@ -16,7 +21,7 @@ const ProfileUser = () => {
 
     const pathGetUser = 'user'
     const key = idLogged
-    const {data: dataUser} = useRequestGet(pathGetUser, key)
+    const {data: dataUser, loading: loadingUser} = useRequestGet(pathGetUser, key)
 
 
     const pathGetCategories = 'categories'
@@ -33,6 +38,10 @@ const ProfileUser = () => {
         setValueCategories(e.target.value)
     }
 
+    const idUserUpload = idLogged
+    const {formUpload, res: resUpload, loading: loadingUpload} = useFunctions(idUserUpload)
+
+
     return(
         <>
         <ContainerProfileUser>
@@ -42,6 +51,26 @@ const ProfileUser = () => {
                 </NavLink>
                 <NavLink to={'/profile'}><h4>Configurações</h4></NavLink>
             </div>
+            <section>
+                <div className='box-circle-profile'>
+                    <div className='circle-profile'>
+                        {
+                            dataUser.profile_image
+                            ?
+                            loadingUpload == true ? <Spinner /> : <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${dataUser.profile_image}`} alt="" />
+                            :
+                            loadingUpload == true ? <Spinner /> : <img className='profileImg' src={ProfilePhoto} alt="" />
+                        }
+                    </div>
+                    <span>Sua foto</span>
+                </div>
+                <div>
+                    <form>
+                        <input type='file' data-upload onChange={formUpload} name='file' />
+                    </form>   
+                </div>
+            </section>
+            {resUpload ? <Toastify action='true' mensage={resUpload} /> : <p></p>}
             <form id='form' onSubmit={putUser}>
                 <h2>Editar perfil</h2>
                 <input className='inputstyle' type="text" data-update_profile name='first_name' placeholder='Nome' defaultValue={dataUser.first_name} required /><br />

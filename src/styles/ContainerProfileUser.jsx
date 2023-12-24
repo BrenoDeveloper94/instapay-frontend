@@ -31,6 +31,34 @@ border-radius: 7px;
         color: #fff;
     }
 }
+
+section {
+
+    .box-circle-profile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+
+        .circle-profile {
+            width: 70px;
+            height: 70px;
+            border-radius: 70px;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            .profileImg {
+                width: 70px;
+                height: 70px;
+                border-radius: 70px;
+                border: solid 1px #fff;
+            }
+        }
+    }
+}
 form {
     width: 100%;
     padding: 10px 20px 20px 20px;

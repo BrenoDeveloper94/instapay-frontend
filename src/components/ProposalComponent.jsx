@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom"
 import BoxProposal from "../styles/BoxProposal"
+import ProfilePhoto from '../../public/profileNot.png'
 import dates from '../utils/dates'
 import money from '../utils/money'
 
@@ -10,7 +11,13 @@ const ProposalComponent = ({identifier, src_profile, title, created_at, descript
         <BoxProposal key={identifier}>
             <div className='header-proposal'>
                 <section>
-                    <img className='profileImg' src={src_profile} alt="" />
+                    {
+                        src_profile
+                        ?
+                        <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${src_profile}`} alt="" />
+                        :
+                        <img className='profileImg' src={ProfilePhoto} alt="" />
+                    }
                     <div>
                         <span>{title}</span>
                         <small>{dates.dateCompare(created_at)}</small>

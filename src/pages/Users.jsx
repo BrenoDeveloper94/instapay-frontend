@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react'
 import Article from '../styles/Article'
 import Section from '../styles/Section'
 import ContainerUsers from '../styles/ContainerUsers'
-import ProfilePhoto from '../../public/userprofile.jpg'
+import ProfilePhoto from '../../public/profileNot.png'
 import BlockUser from '../styles/BlockUser'
 import Spinner from '../styles/Spinner'
 

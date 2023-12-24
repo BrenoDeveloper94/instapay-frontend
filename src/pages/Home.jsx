@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import Article from '../styles/Article'
 import Aside from '../styles/Aside'
 import BoxProposal from '../styles/BoxProposal'
-import ProfilePhoto from '../../public/userprofile.jpg'
+//import ProfilePhoto from '../../public/profileNot.png'
 import ProposalPhoto from '../../public/img-proposal.jpg'
 import BoxUsers from '../styles/BoxUsers'
 import Spinner from '../styles/Spinner'
@@ -56,7 +56,7 @@ const Home = () => {
                 foundProposal.map(proposals =>(
                     <ProposalComponent key={proposals.id}
                         identifier={proposals.id}
-                        src_profile={ProfilePhoto}
+                        src_profile={proposals.id}
                         title={proposals.title_proposal}
                         created_at={proposals.created_at}
                         description={proposals.description}

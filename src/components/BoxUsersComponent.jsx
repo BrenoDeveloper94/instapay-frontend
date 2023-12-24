@@ -1,4 +1,4 @@
-import ProfilePhoto from '../../public/userprofile.jpg'
+import ProfilePhoto from '../../public/profileNot.png'
 import { NavLink } from 'react-router-dom'
 import dates from '../utils/dates'
 

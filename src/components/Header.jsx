@@ -6,7 +6,7 @@ import useRequestGet from  '../hooks/useRequestGet'
 import Section from "../styles/Section"
 import Logo from '../../public/logo.png'
 import BoxNotifications from "../styles/BoxNotifications"
-import ProfilePhoto from '../../public/userprofile.jpg'
+import ProfilePhoto from '../../public/profileNot.png'
 import useFunctions from "../hooks/useFunctions"
 import dates from '../utils/dates'
 

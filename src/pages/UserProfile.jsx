@@ -6,7 +6,7 @@ import BoxProposal from "../styles/BoxProposal"
 import BoxAbout from "../styles/BoxAbout"
 import ContainerProfile from "../styles/ContainerProfile"
 import ProfileBanner from '../../public/banner.png'
-import ProfilePhoto from '../../public/userprofile.jpg'
+import ProfilePhoto from '../../public/profileNot.png'
 import Spinner from "../styles/Spinner"
 
 
