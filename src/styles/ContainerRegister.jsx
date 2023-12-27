@@ -12,7 +12,7 @@ position: absolute;
 width: 100%;
 
 section {
-    width: 90%;
+    width: 99%;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -5,8 +5,6 @@ import { useContext } from 'react'
 import Article from '../styles/Article'
 import Aside from '../styles/Aside'
 import BoxProposal from '../styles/BoxProposal'
-//import ProfilePhoto from '../../public/profileNot.png'
-import ProposalPhoto from '../../public/img-proposal.jpg'
 import BoxUsers from '../styles/BoxUsers'
 import Spinner from '../styles/Spinner'
 import ProposalComponent from '../components/ProposalComponent'
@@ -15,6 +13,8 @@ import Pagination from '../components/Pagination'
 
 
 const Home = () => {
+
+    document.title = 'Instapay / Home'
 
     const {logged: idLogged} = useContext(LoginContext)
 
@@ -56,11 +56,10 @@ const Home = () => {
                 foundProposal.map(proposals =>(
                     <ProposalComponent key={proposals.id}
                         identifier={proposals.id}
-                        src_profile={proposals.id}
+                        image_profile={proposals.user.profile_image}
                         title={proposals.title_proposal}
                         created_at={proposals.created_at}
                         description={proposals.description}
-                        src_proposal={ProposalPhoto}
                         value_proposal={proposals.proposal_value}
                         categories={proposals.categories.text_categories}
                         id={proposals.id}
@@ -75,7 +74,7 @@ const Home = () => {
                 paginationBack={paginationBack}
                 paginationNext={paginationNext}
                 count={count}
-                countrecords={countrecords}
+                countrecords={foundProposal.length}
                 take={take}
                 data={data.length}
             />
@@ -101,6 +100,7 @@ const Home = () => {
                             email={users.email}
                             logged={users.logged}
                             last_acess={users.last_acess}
+                            image_profile={users.profile_image}
                         />
                     ))
                 }

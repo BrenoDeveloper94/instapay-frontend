@@ -3,11 +3,17 @@ import { NavLink } from 'react-router-dom'
 import dates from '../utils/dates'
 
 
-const BoxUsersComponent = ({name, email, button, text_button, path, logged, last_acess}) => {
+const BoxUsersComponent = ({name, email, button, text_button, path, logged, last_acess, image_profile}) => {
     return(
         <>
             <section>
-                <img className='profileImg' src={ProfilePhoto} alt="" />
+                {
+                    image_profile
+                    ?
+                    <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${image_profile}`} alt="" />
+                    :
+                    <img className='profileImg' src={ProfilePhoto} alt="" />
+                }
                 <div>
                     <span>{name} / 
                     {

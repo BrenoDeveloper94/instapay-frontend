@@ -9,6 +9,9 @@ import SpinnerButton from '../styles/SpinnerButton'
 
 const Register = () => {
 
+    document.title = 'Instapay / Registre-se'
+
+
     const [valueCategories, setValueCategories] = useState()
 
     const pathPost = 'user'
@@ -27,7 +30,6 @@ const Register = () => {
 
     return(
         <>
-        {/*<Page style={{backgroundColor: 'red', padding: '100px'}}>*/}
         <ContainerRegister>
             <section>
                 <form id='form' onSubmit={post}>

@@ -4,8 +4,6 @@ import { useContext } from 'react'
 import { LoginContext } from '../contexts/loginContext'
 import Article from '../styles/Article'
 import ProposalComponent from '../components/ProposalComponent'
-import ProfilePhoto from '../../public/profileNot.png'
-import ProposalPhoto from '../../public/img-proposal.jpg'
 import Aside from '../styles/Aside'
 import BoxUsers from '../styles/BoxUsers'
 import BoxProposal from '../styles/BoxProposal'
@@ -14,6 +12,8 @@ import Pagination from '../components/Pagination'
 
 
 const MyProposal = () => {
+
+    document.title = 'Instapay / Minhas propostas'
 
     const {logged: idLogged} = useContext(LoginContext)
 
@@ -40,11 +40,10 @@ const MyProposal = () => {
                 data.map(proposals =>(
                     <ProposalComponent key={proposals.id} 
                         identifier={proposals.id}
-                        src_profile={ProfilePhoto}
+                        image_profile={proposals.user.profile_image}
                         title={proposals.title_proposal}
                         created_at={proposals.created_at}
                         description={proposals.description}
-                        src_proposal={ProposalPhoto}
                         value_proposal={proposals.proposal_value}
                         categories={proposals.categories.text_categories}
                         id={proposals.id}

@@ -6,6 +6,9 @@ import SpinnerButton from '../styles/SpinnerButton'
 
 const RedefinePassword = () => {
 
+    document.title = 'Instapay / Redefinir senha'
+
+
     const pathPut = 'redefinepassword'
     const key = ''
     const idInputPut = '#redefinepassword'

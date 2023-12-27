@@ -15,6 +15,8 @@ import useFunctions from "../hooks/useFunctions"
 
 const ProfileUser = () => {
 
+    document.title = 'Instapay / Dados pessoais'
+
     const {logged: idLogged} = useContext(LoginContext)
     const [valueCategories, setValueCategories] = useState()
 

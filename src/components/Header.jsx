@@ -77,7 +77,13 @@ const Header = ({activemenu}) => {
                 {
                     data.map(notification =>(
                         <div key={notification.id}>
-                            <img className="profileImg" src={ProfilePhoto} alt="" />
+                            {
+                                notification.proposal.user.profile_image
+                                ?
+                                <img className="profileImg" src={`https://drive.google.com/uc?export=view&id=${notification.proposal.user.profile_image}`} alt="" />
+                                :
+                                <img className="profileImg" src={ProfilePhoto} alt="" />
+                            }
                             <div onClick={putNotification}>
                                 <NavLink to={'/notifications'}>
                                     <div>

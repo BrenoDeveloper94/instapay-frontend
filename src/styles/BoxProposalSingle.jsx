@@ -41,7 +41,7 @@ h2 {
     font-family: sans-serif;
     color: #fff;
     margin-bottom: 25px;
-    padding-right: 50px;
+    padding-right: 80px;
     margin-top: -30px;
 }
 small {

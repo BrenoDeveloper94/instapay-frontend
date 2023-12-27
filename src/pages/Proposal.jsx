@@ -19,6 +19,8 @@ import money from '../utils/money'
 
 const Proposal = () => {
 
+    document.title = 'Instapay / Proposta'
+
 
     const { id } = useParams()
     const key = id
@@ -66,7 +68,13 @@ const Proposal = () => {
                 foundProposal.map(proposal => (
                     <div key={proposal.id}>
                         <div className='box-img'>
-                            <img className='profileImg' src={ProfilePhoto} alt="" />
+                            {
+                                proposal.user.profile_image
+                                ?
+                                <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${proposal.user.profile_image}`} alt="" />
+                                :
+                                <img className='profileImg' src={ProfilePhoto} alt="" />
+                            }
                         </div>
                         <h2 key={proposal.id}>{proposal.title_proposal}</h2>
                         <small>{dates.dateCompare(proposal.created_at)}</small>

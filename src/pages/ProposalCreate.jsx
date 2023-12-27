@@ -11,6 +11,9 @@ import Toastify from '../components/Toastify'
 
 const ProposalCreate = () => {
 
+    document.title = 'Instapay / Criar proposta'
+
+
     const [valueCategories, setValueCategories] = useState()
 
     const {logged: idLogged} = useContext(LoginContext)
@@ -28,10 +31,15 @@ const ProposalCreate = () => {
     const idInputPost = '#proposal'
     const {post, loading, res} = useRequestPost(pathPost, idInputPost)
 
+    const foundUsers = data.filter(users =>{
+        return users.id != idLogged
+    })
+
 
     const selectCategories = (e) =>{
         setValueCategories(e.target.value)
     }
+
 
     return(
         <>
@@ -49,7 +57,7 @@ const ProposalCreate = () => {
                         <div className='content-inputs' id='content-inputs'>
                             <input type="hidden" id='proposal' name='id_user' placeholder='id do usuario' defaultValue={idLogged} /><br />
                             <input className='input-create-proposal' type="text" id='proposal' name='title_proposal' placeholder='Título' /><br />
-                            <textarea className='input-create-proposal' type="text" id='proposal' name='description' placeholder='Descrição' /><br />
+                            <input className='input-create-proposal' type="text" id='proposal' name='description' placeholder='Descrição' /><br />
                             <input className='input-create-proposal' type="number" id='proposal' name='proposal_value' placeholder='Quanto você oferta?' /><br />
                             <input type="hidden" id='proposal' name='id_categories' defaultValue={valueCategories} required />
                             <select className='input-create-proposal' onChange={selectCategories} defaultValue={valueCategories} >
@@ -70,12 +78,18 @@ const ProposalCreate = () => {
                             <h3 className='subtitle-influencers'>Clique em quem você quer notificar para ver sua proposta</h3>
                             <div className='content-base-users'>
                                 {
-                                    data.map(users =>(
+                                    foundUsers.map(users =>(
                                         <article key={users.id}>
                                             <label>
                                             <input type="checkbox" id='proposal' placeholder='id_recipient' name='recept' defaultValue={users.id} /><br />
                                                 <div className='container-users'>
-                                                    <img className='profileImg' src={ProfilePhoto} alt="" />
+                                                    {
+                                                        users.profile_image
+                                                        ?
+                                                        <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${users.profile_image}`} alt="" />
+                                                        :
+                                                        <img className='profileImg' src={ProfilePhoto} alt="" />
+                                                    }
                                                     <div>
                                                         <span>{users.first_name} {users.last_name}</span>
                                                         <small>{users.email}</small>
@@ -114,6 +128,7 @@ const ProposalCreate = () => {
                             </a>
                         </div>
                     </form>
+                    <p>{res}</p>
                     {res ? <Toastify action='true' mensage={res} /> : <p></p>}
                 </section>
             </header>

@@ -11,6 +11,8 @@ import money from '../utils/money'
 
 const Notifications = () => {
 
+    document.title = 'Instapay / Notificações'
+
     const {logged: idLogged} = useContext(LoginContext)
 
 
@@ -35,7 +37,13 @@ const Notifications = () => {
                 data.map(notification =>(
                     <section key={notification.id}>
                         <div className='box-user'>
-                            <img className='profileImg' src={ProfilePhoto} alt="" />
+                            {
+                                notification.proposal.user.profile_image
+                                ?
+                                <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${notification.proposal.user.profile_image}`} alt="" />
+                                :
+                                <img className='profileImg' src={ProfilePhoto} alt="" />
+                            }
                             <div>
                                 <span>{notification.proposal.user.first_name} {notification.proposal.user.last_name}</span>
                                 <small>{dates.dateCompare(notification.created_at)}</small>

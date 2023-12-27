@@ -11,6 +11,8 @@ import Pagination from '../components/Pagination'
 
 const Payments = () => {
 
+    document.title = 'Instapay / Pagamentos'
+
     const {logged: idLogged} = useContext(LoginContext)
 
 
@@ -45,7 +47,13 @@ const Payments = () => {
                     data.map(payments =>(
                         <article key={payments.id}>
                             <div className='div-user'>
-                                <img className='profileImg' src={ProfilePhoto} alt="" />
+                                {
+                                    dataUser.profile_image
+                                    ?
+                                    <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${dataUser.profile_image}`} alt="" />
+                                    :
+                                    <img className='profileImg' src={ProfilePhoto} alt="" />
+                                }
                                 <div>
                                     <span>{dataUser.first_name} {dataUser.last_name}</span>
                                 </div>

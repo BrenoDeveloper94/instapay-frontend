@@ -12,6 +12,8 @@ import { NavLink } from 'react-router-dom'
 
 const ProfileBank = () => {
 
+    document.title = 'Instapay / Dados bancários'
+
     const {logged: idLogged} = useContext(LoginContext)
 
 

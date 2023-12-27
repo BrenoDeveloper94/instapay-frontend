@@ -12,6 +12,9 @@ import Spinner from '../styles/Spinner'
 
 const Users = () => {
 
+    document.title = 'Instapay / Usuários'
+
+
     const {logged: idLogged} = useContext(LoginContext)
 
     const pathGet = 'user'
@@ -45,7 +48,13 @@ const Users = () => {
                     <BlockUser key={users.id}>
                         {loading == true ? <Spinner /> : <p></p>}
                         <>
-                            <img className='profileImg' src={ProfilePhoto} alt="" />
+                            {
+                               users.profile_image
+                               ?
+                               <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${users.profile_image}`} alt="" />
+                               :
+                               <img className='profileImg' src={ProfilePhoto} alt="" />
+                            }
                             <span>{users.first_name} {users.last_name}</span>
                             <small>{users.email}</small>
                             <div>

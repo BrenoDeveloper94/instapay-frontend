@@ -3,6 +3,9 @@ import ContainerThanks from "../styles/ContainerThanks"
 
 const Thanks = () => {
 
+    document.title = 'Instapay / Pagamento confirmado'
+
+
     localStorage.removeItem('idAccepted')
 
     return(

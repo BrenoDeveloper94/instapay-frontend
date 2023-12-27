@@ -5,6 +5,8 @@ import SpinnerButton from '../styles/SpinnerButton'
 
 const Login = () => {
 
+    document.title = 'Instapay / Login'
+
     const pathPost = 'login'
     const idInputPost = 'input[data-login]'
 

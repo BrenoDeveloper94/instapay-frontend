@@ -12,7 +12,9 @@ const useRequestsPost = (pathPost, idInputPost) =>{
 
         e.preventDefault()
 
+
         const recept = document.getElementsByName('recept')
+
 
         const arrayRecept = []
         
@@ -24,6 +26,7 @@ const useRequestsPost = (pathPost, idInputPost) =>{
         
 
         const input = document.querySelectorAll(idInputPost)
+
         
         
         const fields = []
@@ -44,10 +47,14 @@ const useRequestsPost = (pathPost, idInputPost) =>{
 
         try {
 
-            const response = await https.post(pathPost,{
+            const response = await https.post(pathPost, {
                 data, arrayRecept
             })
             setRes(response.data.message)
+
+            setTimeout(() =>{
+                setRes('')
+            },5000)
 
             if (response.status == 201) {
 

@@ -13,6 +13,8 @@ import ContainerProfileItem from '../styles/ContainerProfileItem'
 
 const Profile = () => {
 
+    document.title = 'Instapay / Perfil'
+
     const {logged: idLogged} = useContext(LoginContext) // Recebe o id do usuário logado
     const [valueCategories, setValueCategories] = useState()
 

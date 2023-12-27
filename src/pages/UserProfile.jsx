@@ -5,12 +5,15 @@ import Article from "../styles/Article"
 import BoxProposal from "../styles/BoxProposal"
 import BoxAbout from "../styles/BoxAbout"
 import ContainerProfile from "../styles/ContainerProfile"
-import ProfileBanner from '../../public/banner.png'
+import ProfileBanner from '../../public/banner.jpg'
 import ProfilePhoto from '../../public/profileNot.png'
 import Spinner from "../styles/Spinner"
 
 
 const UserProfile = () => {
+
+    document.title = 'Instapay / Usuário'
+
 
     const { id } = useParams()
 
@@ -29,7 +32,13 @@ const UserProfile = () => {
                 </div>
                 <section>
                     <div className='box-info'>
-                        <img className='profileImg' src={ProfilePhoto} alt="" />
+                        {
+                            data.profile_image
+                            ?
+                            <img className='profileImg' src={`https://drive.google.com/uc?export=view&id=${data.profile_image}`} alt="" />
+                            :
+                            <img className='profileImg' src={ProfilePhoto} alt="" />
+                        }
                         <div>
                             <span>{data.first_name} {data.last_name}</span>
                             <small>{data.email}</small>

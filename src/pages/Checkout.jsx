@@ -16,6 +16,8 @@ import Toastify from '../components/Toastify'
 
 const Checkout = () => {
 
+    document.title = 'Instapay / Checkout'
+
     const {numberCard, numbercard, cvvCard, cvvcard, monthCard, monthcard, yearCard, yearcard, cardBack, cardFront, actioncard, nameCard, namecard} = useFunctions()
 
 
