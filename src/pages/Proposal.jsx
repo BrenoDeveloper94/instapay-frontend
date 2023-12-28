@@ -173,6 +173,7 @@ const Proposal = () => {
                             email={influensers.advertiser.email}
                             logged={influensers.advertiser.logged}
                             last_acess={influensers.advertiser.last_acess}
+                            image_profile={influensers.advertiser.profile_image}
                         />
                         ))
                     ))
