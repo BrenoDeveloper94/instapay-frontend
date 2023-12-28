@@ -42,6 +42,18 @@ flex-direction: column;
     justify-content: space-between;
 }
 
+.notification-interested {
+    background: red;
+    position: absolute;
+    margin-top: -37px;
+    padding: 3px 16px 3px 16px;
+    border-radius: 4px;
+
+    span {
+        font-weight: bold;
+    }
+}
+
 div {
     section {
         display: flex;
@@ -55,6 +67,7 @@ div {
             height: 50px;
             border-radius: 50px;
             margin: 0 15px 0 0;
+            border: solid 3px #05f;
         }
 
         div {

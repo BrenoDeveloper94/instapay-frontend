@@ -1,5 +1,5 @@
 import { LoginContext } from '../contexts/loginContext'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import useRequestPost from  '../hooks/useRequestPost'
 import useRequestsPut from '../hooks/useRequestPut'
 import ContainerProfileBank from '../styles/ContainerProfileBank'

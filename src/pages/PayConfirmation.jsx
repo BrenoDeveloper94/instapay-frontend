@@ -1,4 +1,6 @@
 import useRequestGet from "../hooks/useRequestGet"
+import ContainerThanks from "../styles/ContainerThanks"
+import Spinner from "../styles/Spinner"
 
 
 const PayConfirmation = () => {
@@ -27,7 +29,9 @@ const PayConfirmation = () => {
 
     return(
         <>
-        <h1>Confirmation</h1>
+        <ContainerThanks>
+            <Spinner />
+        </ContainerThanks>
         </>
     )
 }

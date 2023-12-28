@@ -93,7 +93,7 @@ const Checkout = () => {
                                     <button type='submit'>Pagar</button>
                                 }
                             </form>
-                            {res ? <Toastify action='true' mensage={res} /> : <p></p>}
+                            {res == 'Algo deu errado' ? <Toastify action='true' mensage={res} /> : <p></p>}
                         </div>
                         <div className='box-info'>
                             <div className='info'>

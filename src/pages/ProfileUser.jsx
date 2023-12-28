@@ -1,21 +1,21 @@
 import { NavLink } from "react-router-dom"
 import ContainerProfileUser from "../styles/ContainerProfileUser"
 import { LoginContext } from '../contexts/loginContext'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import useRequestsPut from '../hooks/useRequestPut'
 import useRequestGet from '../hooks/useRequestGet'
-import useRequestsPost from '../hooks/useRequestPost'
 import maskCpf from '../utils/maskCpf'
 import SpinnerButton from '../styles/SpinnerButton'
 import Spinner from "../styles/SpinnerButton"
 import Toastify from '../components/Toastify'
 import ProfilePhoto from '../../public/profileNot.png'
-import https from '../config/axios'
 import useFunctions from "../hooks/useFunctions"
+
 
 const ProfileUser = () => {
 
     document.title = 'Instapay / Dados pessoais'
+
 
     const {logged: idLogged} = useContext(LoginContext)
     const [valueCategories, setValueCategories] = useState()
@@ -23,7 +23,7 @@ const ProfileUser = () => {
 
     const pathGetUser = 'user'
     const key = idLogged
-    const {data: dataUser, loading: loadingUser} = useRequestGet(pathGetUser, key)
+    const {data: dataUser} = useRequestGet(pathGetUser, key)
 
 
     const pathGetCategories = 'categories'

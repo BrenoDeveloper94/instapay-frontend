@@ -1,12 +1,11 @@
 import useRequestGet from '../hooks/useRequestGet'
-import {NavLink, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import useRequestsPost from '../hooks/useRequestPost'
 import { useContext } from 'react'
 import { LoginContext } from '../contexts/loginContext'
 import Article from '../styles/Article'
 import Aside from '../styles/Aside'
 import BoxProposalSingle from '../styles/BoxProposalSingle'
-import BlockProposalAside from '../styles/BlockProposalAside'
 import BoxUsersComponent from '../components/BoxUsersComponent'
 import Spinner from '../styles/Spinner'
 import ProfilePhoto from '../../public/profileNot.png'
@@ -104,7 +103,7 @@ const Proposal = () => {
                                             proposal.user.id != logged ? 
                                             <>
                                                 {
-                                                    foundAccepted.length == 1 || res == 'Proposta aceita com sucesso'
+                                                    foundAccepted.length == 1
                                                     ?
                                                     <p className='box_proposal-accepted'>Você já aceitou esta proposta
                                                         <i className="material-symbols-outlined">check_circle</i>

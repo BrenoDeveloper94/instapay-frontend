@@ -47,6 +47,7 @@ const MyProposal = () => {
                         value_proposal={proposals.proposal_value}
                         categories={proposals.categories.text_categories}
                         id={proposals.id}
+                        interested={proposals.status_accepted}
                     />
                 ))
             }

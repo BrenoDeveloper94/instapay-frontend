@@ -1,9 +1,7 @@
 import useRequestGet from '../hooks/useRequestGet'
 import { NavLink } from "react-router-dom"
 import { LoginContext } from '../contexts/loginContext'
-import { useContext, useEffect, useState } from 'react'
-import Article from '../styles/Article'
-import Section from '../styles/Section'
+import { useContext } from 'react'
 import ContainerUsers from '../styles/ContainerUsers'
 import ProfilePhoto from '../../public/profileNot.png'
 import BlockUser from '../styles/BlockUser'

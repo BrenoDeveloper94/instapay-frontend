@@ -5,10 +5,16 @@ import dates from '../utils/dates'
 import money from '../utils/money'
 
 
-const ProposalComponent = ({identifier, image_profile, title, created_at, description, value_proposal, categories, id}) => {
+const ProposalComponent = ({identifier, image_profile, title, created_at, description, value_proposal, categories, id, interested}) => {
     return(
         <>
-        <BoxProposal key={identifier}>
+        <BoxProposal key={identifier} style={{border: interested == 1 && 'solid 3px blue'}}>
+            {
+                interested == 1 &&
+                <div className='notification-interested'>
+                    <span>Interessados</span>
+                </div>
+            }
             <div className='header-proposal'>
                 <section>
                     {
