@@ -92,7 +92,7 @@ const ProfileUser = () => {
                 <input className='inputstyle' type="text" onChange={maskCpf} data-update_profile name='cpf' placeholder='cpf' defaultValue={dataUser.cpf} required /><br />
                 <input type="hidden" data-update_profile name='id_categories' defaultValue={valueCategories} required />
                 <select className='inputstyle' onChange={selectCategories} defaultValue={valueCategories} >
-                    <option>selecione</option>
+                    <option>selecione a categoria</option>
                     {
                         dataCategories.map(categories =>(
                             <option value={categories.id} key={categories.id} >{categories.text_categories}</option>
