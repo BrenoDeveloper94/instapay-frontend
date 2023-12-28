@@ -7,12 +7,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-color: #293145;
-padding: 50px;
+padding: 50px 0 50px 0;
 position: absolute;
 width: 100%;
 
 section {
-    width: 99%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -7,7 +7,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 background-color: #293145;
-padding: 50px;
+padding: 50px 0 50px 0;
 position: absolute;
 width: 100%;
 height: 100vh;
