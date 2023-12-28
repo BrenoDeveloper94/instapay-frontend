@@ -128,7 +128,6 @@ const ProposalCreate = () => {
                             </a>
                         </div>
                     </form>
-                    <p>{res}</p>
                     {res ? <Toastify action='true' mensage={res} /> : <p></p>}
                 </section>
             </header>
