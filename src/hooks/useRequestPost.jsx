@@ -86,6 +86,18 @@ const useRequestsPost = (pathPost, idInputPost) =>{
             if (pathPost == 'user' && response.status == 201) {
                 window.location.replace('/login')
             }
+
+            if (pathPost == 'accepted' && response.status == 201) {
+                setTimeout(()=>{
+                    window.location.replace('/')
+                },2000)
+            }
+
+            if (pathPost == 'proposal' && response.status == 201) {
+                setTimeout(()=>{
+                    window.location.replace('/')
+                },2000)
+            }
             
         } catch (error) {
             console.log(error)
