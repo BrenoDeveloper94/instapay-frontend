@@ -6,7 +6,7 @@ import dates from '../utils/dates'
 const BoxUsersComponent = ({name, email, button, text_button, path, logged, last_acess, image_profile}) => {
     return(
         <>
-            <section>
+            <section style={{marginBottom: button == 'none' && '30px'}}>
                 {
                     image_profile
                     ?
